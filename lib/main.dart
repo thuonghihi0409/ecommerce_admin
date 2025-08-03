@@ -15,6 +15,8 @@ import 'package:thuongmaidientu/features/order_management.dart/presentation/bloc
 import 'package:thuongmaidientu/features/product_management/presentation/bloc/product_management_bloc/product_management_bloc.dart';
 import 'package:thuongmaidientu/features/profile/presentation/bloc/profile_bloc/profile_bloc.dart';
 import 'package:thuongmaidientu/features/review/presentation/bloc/review_bloc/review_bloc.dart';
+import 'package:thuongmaidientu/features/store_management/presentation/bloc/store_management_bloc/store_management_bloc.dart';
+import 'package:thuongmaidientu/features/user_management/presentation/bloc/user_management_bloc/user_management_bloc.dart';
 import 'package:thuongmaidientu/get_it.dart';
 import 'package:thuongmaidientu/init_page.dart';
 import 'package:thuongmaidientu/shared/service/navigator_service.dart';
@@ -60,7 +62,9 @@ void main() async {
           BlocProvider(create: (_) => sl<ProfileBloc>()),
           BlocProvider(create: (_) => sl<DashboardBloc>()),
           BlocProvider(create: (_) => sl<ProductManagementBloc>()),
-          BlocProvider(create: (_) => sl<OrderManagementBloc>())
+          BlocProvider(create: (_) => sl<OrderManagementBloc>()),
+          BlocProvider(create: (_) => sl<UserManagementBloc>()),
+          BlocProvider(create: (_) => sl<StoreManagementBloc>()),
         ], child: const MyApp()),
       )));
 }

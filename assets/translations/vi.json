@@ -113,6 +113,27 @@
     "key_payment": "Thanh toán",
     "key_create_store": "Tạo cửa hàng",
     "key_upload_logo_store": "Chọn logo cửa hàng",
-    "key_upload_background_store": "Chọn ảnh nền cửa hàng"
+    "key_upload_background_store": "Chọn ảnh nền cửa hàng",
+    "key_user_management": "Quản lý người dùng",
+    "key_store_management": "Quản lý cửa hàng",
+    "key_this_month": "Tháng",
+    "key_this_year": "Năm",
+    "key_live_time": "Thời gian thực",
+    "key_top_rating_product": "Những sản phẩm được đánh giá cao",
+    "key_admin_user" : "Người dùng quản trị",
+    "key_total_user":  "Tổng số người dùng",
+    "key_total_store": "Tổng số cửa hàng",
+    "key_store_name": "Tên của hàng",
+    "key_store_owner": "Chủ cửa hàng",
+    "key_status" : "Trạng thái",
+    "key_category_management": "Quản lý danh mục sản phẩm",
+    "key_name_category" : "Tên danh mục",
+    "key_add_category" : "Thêm danh mục",
+    "key_table_category" : "Bảng danh mục",
+    "key_discription": "Mô tả",
+    "key_table_user": "Bảng người dùng",
+    "key_table_store": "Bảng cửa hàng",
+    "key_create_category": "Tạo danh mục"
+
 
 }

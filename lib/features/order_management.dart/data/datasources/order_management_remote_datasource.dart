@@ -31,7 +31,7 @@ class OrderManagementRemoteDataSourceImpl
       variant: Variants(*)
       
       ),address: Address(*)
-      ''').eq('store_id', storeId).eq('status', status);
+      ''').eq('status', status);
 
     final result = ListModel(
         results:

@@ -12,4 +12,6 @@ class AppAssets {
   static String settingIcon = "${assets}setting_icon.svg";
   static String dashboardIcon = "${assets}dashboard_icon.svg";
   static String productIcon = "${assets}product_icon.svg";
+  static String storeIcon = "${assets}store_icon.svg";
+  static String categoryIcon = "${assets}category_icon.svg";
 }

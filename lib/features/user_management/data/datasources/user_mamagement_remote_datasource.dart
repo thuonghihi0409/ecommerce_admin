@@ -1,15 +1,13 @@
-import 'dart:developer';
-
 import 'package:thuongmaidientu/features/product/data/models/category_model.dart';
 import 'package:thuongmaidientu/features/product/data/models/product_detail_model.dart';
 import 'package:thuongmaidientu/features/product/domain/entities/category.dart';
 import 'package:thuongmaidientu/features/product/domain/entities/product_detail.dart';
-import 'package:thuongmaidientu/features/product_management/data/models/seller_product_model.dart';
+import 'package:thuongmaidientu/features/user_management/data/models/user_model.dart';
 import 'package:thuongmaidientu/shared/service/supabase_client.dart';
 import 'package:thuongmaidientu/shared/utils/list_model.dart';
 
-abstract class ProductManagementRemoteDatasource {
-  Future<ListModel<SellerProductModel>> getListProduct(String? storeId);
+abstract class UserManagementRemoteDatasource {
+  Future<ListModel<UserEntityModel>> getListUser();
   Future<ProductDetailModel> getProductDetail(String id);
   Future<void> createProductDetail(ProductDetail product);
   Future<List<Category>> getListCategory();
@@ -17,25 +15,19 @@ abstract class ProductManagementRemoteDatasource {
   Future<void> updateProduct(ProductDetail product);
 }
 
-class ProductManagementRemoteDataSourceImpl
-    implements ProductManagementRemoteDatasource {
-  ProductManagementRemoteDataSourceImpl();
+class UserManagementRemoteDataSourceImpl
+    implements UserManagementRemoteDatasource {
+  UserManagementRemoteDataSourceImpl();
 
   @override
-  Future<ListModel<SellerProductModel>> getListProduct(String? storeId) async {
-    var query = supabase.from("Products").select('''
-      *,
-      variants : Variants(*),
-      category: Categories(*)
+  Future<ListModel<UserEntityModel>> getListUser() async {
+    var data = await supabase.from("Users").select('''
+      *
       ''');
-    if (storeId != null) {
-      query = query.eq("store_id", storeId);
-    }
-    final data = await query;
+
     final result = ListModel(
-        results: data
-            .map((product) => SellerProductModel.fromJson(product))
-            .toList());
+        results:
+            data.map((product) => UserEntityModel.fromJson(product)).toList());
 
     return result;
   }
@@ -54,10 +46,8 @@ class ProductManagementRemoteDataSourceImpl
 
   @override
   Future<List<CategoryModel>> getListCategory() async {
-    final data = await supabase
-        .from("Categories")
-        .select('''*, total : Products(count)''');
-    log("category$data");
+    final data = await supabase.from("Categories").select('''*''');
+
     return data.map((item) => CategoryModel.fromJson(item)).toList();
   }
 

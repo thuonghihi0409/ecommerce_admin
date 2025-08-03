@@ -13,11 +13,14 @@ import 'package:thuongmaidientu/features/notification/presentation/bloc/notifica
 import 'package:thuongmaidientu/features/order_management.dart/presentation/page/order_management_page.dart';
 import 'package:thuongmaidientu/features/product/presentation/page/product_page.dart';
 import 'package:thuongmaidientu/features/product/presentation/page/store_detail.dart';
+import 'package:thuongmaidientu/features/product_management/presentation/page/category_management.dart';
 import 'package:thuongmaidientu/features/product_management/presentation/page/create_product_page.dart';
 import 'package:thuongmaidientu/features/product_management/presentation/page/product_management_page.dart';
 import 'package:thuongmaidientu/features/product_management/presentation/page/product_restock_page.dart';
 import 'package:thuongmaidientu/features/profile/presentation/bloc/profile_bloc/profile_bloc.dart';
 import 'package:thuongmaidientu/features/profile/presentation/page/setting_screen.dart';
+import 'package:thuongmaidientu/features/store_management/presentation/page/store_management_page.dart';
+import 'package:thuongmaidientu/features/user_management/presentation/page/user_management_page.dart';
 import 'package:thuongmaidientu/shared/service/navigator_service.dart';
 import 'package:thuongmaidientu/shared/utils/extension.dart';
 import 'package:thuongmaidientu/shared/utils/helper.dart';
@@ -26,26 +29,31 @@ import 'package:thuongmaidientu/shared/widgets/image_cache_custom.dart';
 
 List<String> drawers = [
   'key_dashboard'.tr(),
+  "key_category_management".tr(),
   'key_product_management'.tr(),
   'key_order_management'.tr(),
-  'key_conversation'.tr(),
-  // 'key_chat'.tr(),
+  'key_user_management'.tr(),
+  'key_store_management'.tr(),
   'key_setting'.tr(),
 ];
 
 List<String> drawerIcons = [
   AppAssets.dashboardIcon,
+  AppAssets.categoryIcon,
   AppAssets.productIcon,
   AppAssets.orderIcon,
-  AppAssets.chatIcon,
+  AppAssets.addUserIcon,
+  AppAssets.storeIcon,
   AppAssets.settingIcon,
 ];
 
 List<String> drawerRoutes = [
   "dashboard",
+  "category_management",
   "product_management",
   "order_management",
-  "conversation",
+  "user_management",
+  "store_management",
   "setting",
 ];
 
@@ -204,6 +212,15 @@ class _WebMainDrawerState extends State<WebMainDrawer> {
                         case "profile_store":
                           child = StoreDetail(
                               store: context.read<ProfileBloc>().state.store);
+                          break;
+                        case "user_management":
+                          child = const UserManagementPage();
+                          break;
+                        case "store_management":
+                          child = const StoreManagementPage();
+                          break;
+                        case "category_management":
+                          child = const CategoryManagementPage();
                           break;
                       }
 
